@@ -18,9 +18,10 @@ Class Action {
 	function login(){
 		
 			extract($_POST);		
-			$qry = $this->db->query("SELECT * FROM users where username = '".$username."' and password = '".md5($password)."' ");
+		    $qry = $this->db->query("SELECT * FROM users where username = '".$username."' and password = '".md5($password)."' ");
+			//$qry = $this->db->query("SELECT * FROM users where username = 'admin' and password = 'admin123' ");
 			if($qry->num_rows > 0){
-				foreach ($qry->fetch_array() as $key => $value) {
+			foreach ($qry->fetch_array() as $key => $value) {
 					if($key != 'passwors' && !is_numeric($key))
 						$_SESSION['login_'.$key] = $value;
 				}
@@ -32,7 +33,7 @@ Class Action {
 					exit;
 				}
 					return 1;
-			}else{
+		}else{
 				return 3;
 			}
 	}
@@ -93,16 +94,17 @@ Class Action {
 		if($type == 1)
 			$establishment_id = 0;
 		$data .= ", establishment_id = '$establishment_id' ";
-		$chk = $this->db->query("Select * from users where username = '$username' and id !='$id' ")->num_rows;
+		$chk = $this->db->query("SELECT * from users where username = '$username' and id !='$id' ")->num_rows;
 		if($chk > 0){
 			return 2;
 			exit;
-		}
+			//$save = $this->db->query("INSERT INTO users set ".$data);
+	    }
 		if(empty($id)){
 			$save = $this->db->query("INSERT INTO users set ".$data);
 		}else{
 			$save = $this->db->query("UPDATE users set ".$data." where id = ".$id);
-		}
+		}//$save = $this->db->query("INSERT INTO users set ".$data);
 		if($save){
 			return 1;
 		}
@@ -270,6 +272,7 @@ Class Action {
 		$data .= ", f_price = '$price2' ";
 		$data .= ", drainage = '$description3' ";
 		$data .= ", d_price = '$price3' ";
+		//$data .= ", d_price = '$date_in' ";
 		//$chk = $this->db->query("SELECT * FROM houses where house_no = '$house_no' ")->num_rows;
 		//if($chk > 0 ){
 			//return 2;

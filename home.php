@@ -1,4 +1,5 @@
 <?php include 'db_connect.php' ?>
+
 <style>
    span.float-right.summary_icon {
     font-size: 3rem;

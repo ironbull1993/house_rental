@@ -67,7 +67,7 @@
 								<label class="control-label">Price</label>
 								<input type="number" class="form-control text-right" name="price3" step="any" required="">
 							</div>
-
+				
 
 
 

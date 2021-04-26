@@ -6,7 +6,7 @@
 	
 	<div class="row">
 	<div class="col-lg-12">
-			<button class="btn btn-primary float-right btn-sm" id="new_user" onclick="openForm()"><i class="fa fa-plus"></i> New user</button>
+			<button class="btn btn-primary float-right btn-sm" id="" onclick="openForm()"><i class="fa fa-plus"></i> New user</button>
 	</div>
 	</div>
 	<br>
@@ -71,9 +71,9 @@
 </div>
 <script>
 	$('table').dataTable();
-//$('#new_user').click(function(){
-//	uni_modal('New User','manage_user.php')
-//})
+$('#new_user').click(function(){
+	uni_modal('New User','manage_user.php')
+})
 $('.edit_user').click(function(){
 	uni_modal('Edit User','manage_user.php?id='+$(this).attr('data-id'))
 })

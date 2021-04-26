@@ -42,10 +42,10 @@ foreach($user->fetch_array() as $k =>$v){
 		<?php endif; ?>
 		<?php endif; ?>
 		
-
+		<!--button type="submit" class="btn">Savee</button-->
 	</form>
 </div>
-<script>
+<!--script>
 	
 	$('#manage-user').submit(function(e){
 		e.preventDefault();
@@ -55,12 +55,16 @@ foreach($user->fetch_array() as $k =>$v){
 			method:'POST',
 			data:$(this).serialize(),
 			success:function(resp){
-				if(resp == 1){
+				if(resp == 2){
 					alert_toast("Data successfully saved",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)
 				}else{
+				//	alert_toast("Data successfully saved",'success')
+				//	setTimeout(function(){
+					//	location.reload()
+					//},1500)
 					$('#msg').html('<div class="alert alert-danger">Username already exist</div>')
 					end_load()
 				}
@@ -68,4 +72,4 @@ foreach($user->fetch_array() as $k =>$v){
 		})
 	})
 
-</script>
+</script-->

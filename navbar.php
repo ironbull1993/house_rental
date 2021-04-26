@@ -4,7 +4,7 @@
 		text-indent:10px;
 	}
 	nav#sidebar{
-		/*background: url(assets/uploads/<?php echo $_SESSION['system']['cover_img'] ?>) !important*/
+	/** 	background: url(assets/uploads/<?php echo $_SESSION['system']['cover_img'] ?>)*/
 	}
 </style>
 
@@ -21,7 +21,7 @@
 				<a href="index.php?page=contracts" class="nav-item nav-reports"><span class='icon-field'><i class="fa fa-list-alt "></i></span> Contract</a>
 				<?php if($_SESSION['login_type'] == 1): ?>
 				<a href="index.php?page=users" class="nav-item nav-users"><span class='icon-field'><i class="fa fa-users "></i></span> Users</a>
-				< <a href="index.php?page=site_settings" class="nav-item nav-site_settings"><span class='icon-field'><i class="fa fa-cogs text-danger"></i></span> System Settings</a> >
+				<!-- <a href="index.php?page=site_settings" class="nav-item nav-site_settings"><span class='icon-field'><i class="fa fa-cogs text-danger"></i></span> System Settings</a> -->
 			<?php endif; ?>
 		</div>
 
