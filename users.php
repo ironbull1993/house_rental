@@ -53,7 +53,7 @@
 								    <span class="sr-only">Toggle Dropdown</span>
 								  </button>
 								  <div class="dropdown-menu">
-								    <a class="dropdown-item edit_user" href="javascript:void(0)" data-id = '<?php echo $row['id'] ?>'>Edit</a>
+								    <!--a class="dropdown-item edit_user" href="javascript:void(0)" data-id = '<?php echo $row['id'] ?>'>Edit</a-->
 								    <div class="dropdown-divider"></div>
 								    <a class="dropdown-item delete_user" href="javascript:void(0)" data-id = '<?php echo $row['id'] ?>'>Delete</a>
 								  </div>

@@ -59,7 +59,7 @@ $month_of = isset($_GET['month_of']) ? $_GET['month_of'] : date('Y-m');
 										
 										<th>House #</th>
 										
-										<th>totalm_amount</th>
+										<th>Total_amount</th>
                                         
 									</tr>
 								</thead>

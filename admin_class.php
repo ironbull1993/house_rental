@@ -25,13 +25,13 @@ Class Action {
 					if($key != 'passwors' && !is_numeric($key))
 						$_SESSION['login_'.$key] = $value;
 				}
-				if($_SESSION['login_type'] != 1){
-					foreach ($_SESSION as $key => $value) {
-						unset($_SESSION[$key]);
-					}
-					return 2 ;
-					exit;
-				}
+				//if($_SESSION['login_type'] != 1){
+				//	foreach ($_SESSION as $key => $value) {
+				//		unset($_SESSION[$key]);
+				//	}
+				//	return 2 ;
+				//	exit;
+				//}
 					return 1;
 		}else{
 				return 3;

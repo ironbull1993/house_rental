@@ -31,7 +31,7 @@ header("location:index.php?page=home");
 	body{
 		width: 100%;
 	    height: calc(100%);
-	    /*background: #007bff;*/
+	   /* background: #117bff;*/
 	}
 	main#main{
 		width:100%;
@@ -55,9 +55,9 @@ header("location:index.php?page=home");
 		background:#59b6ec61;
 		display: flex;
 		align-items: center;
-		/*background: url(assets/uploads/blood-cells.jpg);
+		background: url(assets/uploads/i3.jpg);
 	    background-repeat: no-repeat;
-	    background-size: cover;*/
+	    background-size: cover;
 	}
 	#login-right .card{
 		margin: auto;
@@ -79,7 +79,7 @@ div#login-right::before {
     left: 0;
     width: calc(100%);
     height: calc(100%);
-    /*background: #000000e0;*/
+    background: ;
 }
 
 </style>
@@ -93,9 +93,12 @@ div#login-right::before {
 
   		<div id="login-right" class="bg-light">
   			<div class="w-100">
-			<h4 class="text-white text-center"><b><?php echo $_SESSION['system']['name'] ?></b></h4>
+			<h4 class="text-white text-center" style="background-color:black;" style="border:8px;"><b><?php echo $_SESSION['system']['name'] ?></b></h4>
 			<br>
 			<br>
+			
+			<br>
+			&nbsp;<h4 style="text-align:center;"><b>LOGIN</b><h4>
   			<div class="card col-md-8">
   				<div class="card-body">
   					<form id="login-form" >
