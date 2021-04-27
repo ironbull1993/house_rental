@@ -1,0 +1,7 @@
+{
+    "require": {
+        "messagebird/php-rest-api": "^1.16",
+        "twilio/sdk": "^5.42",
+        "vonage/client": "^1.9"
+    }
+}
