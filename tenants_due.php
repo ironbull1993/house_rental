@@ -67,6 +67,7 @@
 									</td>
 									<td class="text-center">
 										<!--button class="btn btn-sm btn-outline-primary view_payment" type="button" data-id="<?php echo $row['id'] ?>" >View</button-->
+										<!--a href="index.php?page=sms" ><button class="btn btn-sm btn-outline-primary edit_tenant" type="button" data-id="<?php //echo $row['id'] ?>" >Message</button></a-->
 										<button class="btn btn-sm btn-outline-primary edit_tenant" type="button" data-id="<?php echo $row['id'] ?>" >Message</button>
 										<!--button class="btn btn-sm btn-outline-danger delete_tenant" type="button" data-id="<?php echo $row['id'] ?>">Delete</button-->
 									</td>
