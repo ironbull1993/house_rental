@@ -15,10 +15,8 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<b>List of Tenant</b>
-						<span class="float:right"><a class="btn btn-primary btn-block btn-sm col-sm-2 float-right" href="javascript:void(0)" id="new_tenant">
-					<i class="fa fa-plus"></i> New Tenant
-				</a></span>
+						<b>List of Tenants With Incoming Payments Due:</b>
+						
 					</div>
 					<div class="card-body">
 						<table class="table table-condensed table-bordered table-hover">
@@ -28,7 +26,7 @@
 									<th class="">Name</th>
 									<th class="">House Rented</th>
 									<th class="">Monthly Rate</th>
-									<th class="">Outstanding Balance</th>
+									<th class="">Remaining Balance</th>
 									<th class="">Last Payment</th>
 									<th class="text-center">Action</th>
 								</tr>
@@ -62,7 +60,7 @@
 									<td class="text-right">
 										 <p> <b><?php 
                                          //if($row['price']==-$outstanding){
-                                         echo number_format($outstanding,2) ?></b></p>
+                                         echo number_format(-$outstanding,2) ?></b></p>
 									</td>
 									<td class="">
 										 <p><b><?php echo  $last_payment ?></b></p>
