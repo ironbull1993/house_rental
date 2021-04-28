@@ -75,6 +75,7 @@ Class Action {
 			unset($_SESSION[$key]);
 		}
 		header("location:login.php");
+		
 	}
 	function logout2(){
 		session_destroy();

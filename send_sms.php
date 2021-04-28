@@ -207,7 +207,7 @@ if(isset($_POST['smsg'])){
                        <td>
                          Message:
                        </td>
-                       <td><textarea class='form-control' name="msg"><?php //echo @$msg; ?></textarea></td>
+                       <td><textarea class='form-control' name="msg"><?php //echo $msg; ?></textarea></td>
                      </tr>
                      <tr>
                      <td></td>
