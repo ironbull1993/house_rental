@@ -44,6 +44,10 @@
 									$paid = $paid->num_rows > 0 ? $paid->fetch_array()['paid'] : 0;
 									$last_payment = $last_payment->num_rows > 0 ? date("M d, Y",strtotime($last_payment->fetch_array()['date_created'])) : 'N/A';
 									$outstanding = $payable - $paid;
+									$remain_month=$outstanding/$row['price'];
+
+
+
                                    
 								?><?php if($row['price']==-$outstanding){ ?>
 								<tr>
@@ -60,7 +64,9 @@
 									<td class="text-right">
 										 <p> <b><?php 
                                          //if($row['price']==-$outstanding){
-                                         echo number_format(-$outstanding,2) ?></b></p>
+                                         echo number_format(-$outstanding,2) ?>&nbsp;<b>for</b>&nbsp;<?php 
+                                         //if($row['price']==-$outstanding){
+                                         echo number_format(-$remain_month,0) ?>&nbsp;<b>month</b></b></p>
 									</td>
 									<td class="">
 										 <p><b><?php echo  $last_payment ?></b></p>
@@ -68,7 +74,7 @@
 									<td class="text-center">
 										<!--button class="btn btn-sm btn-outline-primary view_payment" type="button" data-id="<?php echo $row['id'] ?>" >View</button-->
 										<!--a href="index.php?page=sms" ><button class="btn btn-sm btn-outline-primary edit_tenant" type="button" data-id="<?php //echo $row['id'] ?>" >Message</button></a-->
-										<button class="btn btn-sm btn-outline-primary edit_tenant" type="button" data-id="<?php echo $row['id'] ?>" >Message</button>
+										<button class="btn btn-sm btn-outline-primary edit_tenant"  type="button" data-id="<?php echo $row['id'] ?>" >Message</button>
 										<!--button class="btn btn-sm btn-outline-danger delete_tenant" type="button" data-id="<?php echo $row['id'] ?>">Delete</button-->
 									</td>
 								</tr>   <?php } ?>
@@ -101,38 +107,17 @@
 		$('table').dataTable()
 	})
 	
-	$('#new_tenant').click(function(){
-		uni_modal("New Tenant","manage_tenant.php","mid-large")
-		
-	})
-
-	$('.view_payment').click(function(){
-		uni_modal("Tenants Payments","view_payment.php?id="+$(this).attr('data-id'),"large")
-		
-	})
+	
 	$('.edit_tenant').click(function(){
 		uni_modal("Send Message To:","sms.php?id="+$(this).attr('data-id'),"mid-large")
 		
 	})
-	$('.delete_tenant').click(function(){
-		_conf("Are you sure to delete this Tenant?","delete_tenant",[$(this).attr('data-id')])
-	})
 	
-	function delete_tenant($id){
-		start_load()
-		$.ajax({
-			url:'ajax.php?action=delete_tenant',
-			method:'POST',
-			data:{id:$id},
-			success:function(resp){
-				if(resp==1){
-					alert_toast("Data successfully deleted",'success')
-					setTimeout(function(){
-						location.reload()
-					},1500)
-
-				}
-			}
-		})
-	}
+	
+	
 </script>
+
+
+
+
+
