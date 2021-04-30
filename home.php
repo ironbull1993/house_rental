@@ -1,6 +1,37 @@
 <?php include 'db_connect.php' ?>
 
 <style>
+
+
+.blink_text {
+
+animation:1s blinker linear infinite;
+-webkit-animation:1s blinker linear infinite;
+-moz-animation:1s blinker linear infinite;
+
+ color: red;
+}
+
+@-moz-keyframes blinker {  
+ 0% { opacity: 1.0; }
+ 50% { opacity: 0.0; }
+ 100% { opacity: 1.0; }
+ }
+
+@-webkit-keyframes blinker {  
+ 0% { opacity: 1.0; }
+ 50% { opacity: 0.0; }
+ 100% { opacity: 1.0; }
+ }
+
+@keyframes blinker {  
+ 0% { opacity: 1.0; }
+ 50% { opacity: 0.0; }
+ 100% { opacity: 1.0; }
+ }
+
+
+
    span.float-right.summary_icon {
     font-size: 3rem;
     position: absolute;
@@ -114,7 +145,43 @@
                 </div>
             </div>      			
         </div>
-    </div>
+    </div><br><br><br><br>
+
+
+
+    <?php 
+								$i = 1;
+								$tenant = $conn->query("SELECT t.*,concat(t.lastname,', ',t.firstname,' ',t.middlename) as name,h.house_no,h.price FROM tenants t inner join houses h on h.id = t.house_id where t.status = 1 order by h.house_no desc ");
+								while($row=$tenant->fetch_assoc()):
+									$months = abs(strtotime(date('Y-m-d')." 23:59:59") - strtotime($row['date_in']." 23:59:59"));
+									$months = floor(($months) / (30*60*60*24));
+									$payable = $row['price'] * $months;
+									$paid = $conn->query("SELECT SUM(amount) as paid FROM payments where tenant_id =".$row['id']);
+									$last_payment = $conn->query("SELECT * FROM payments where tenant_id =".$row['id']." order by unix_timestamp(date_created) desc limit 1");
+									$paid = $paid->num_rows > 0 ? $paid->fetch_array()['paid'] : 0;
+									$last_payment = $last_payment->num_rows > 0 ? date("M d, Y",strtotime($last_payment->fetch_array()['date_created'])) : 'N/A';
+									$outstanding = $payable - $paid;
+									$remain_month=$outstanding/$row['price'];
+
+
+
+                                   
+								?>
+                                
+                                <?php if($row['price']==-$outstanding){ ?> 
+                                    <p><b> <span class="blink_text">NOTIFICATION:</span></b></p>
+                                <p><b> <span class="blink_text">You have tenants with incoming due dates navigate to Payment Due to check the list.</span></b></p>
+                                
+                                
+                                
+                                <?php break;} ?>
+                                   
+                                   <?php endwhile; ?>
+
+
+                                  
+
+
 </div>
 <script>
 	$('#manage-records').submit(function(e){

@@ -63,28 +63,32 @@ if ($message->getStatus() == 0) { echo "<script> alert('The message was sent suc
 
 
 ?>
-<div class="container-fluid">
+<div class="container-fluid" id="form1">
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method = "POST" id="manage-tenant">
 		<input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
 		<div class="row form-group">
-			<div class="col-md-4">
-				<label for="" class="control-label">Last Name</label>
-				<input type="text" class="form-control" name="lastname"  value="<?php echo isset($lastname) ? $lastname :'' ?>" required>
+		
+			
+		<div class="col-md-4">
+				
+				<input type="text" class="form-control" name="firstname" style="border: 0 none;"  value="<?php echo isset($firstname) ? $firstname :'' ?>" required>
 			</div>
 			<div class="col-md-4">
-				<label for="" class="control-label">First Name</label>
-				<input type="text" class="form-control" name="firstname"  value="<?php echo isset($firstname) ? $firstname :'' ?>" required>
+				
+				<input type="text" class="form-control" name="middlename" style="border: 0 none;" value="<?php echo isset($middlename) ? $middlename :'' ?>">
 			</div>
 			<div class="col-md-4">
-				<label for="" class="control-label">Middle Name</label>
-				<input type="text" class="form-control" name="middlename"  value="<?php echo isset($middlename) ? $middlename :'' ?>">
+				
+				<input type="text" class="form-control" name="lastname" style="border: 0 none;" value="<?php echo isset($lastname) ? $lastname :'' ?>" required>
 			</div>
+			
+			
 		</div>
 		<div class="form-group row">
 			
 			<div class="col-md-4">
 				<label for="" class="control-label">Contact #</label>
-				<input type="text" class="form-control" name="pno"  value="<?php echo isset($contact) ? $contact :'' ?>" required>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><input type="text" class="form-control" name="pno" style="border: 0 none;" value="<?php echo isset($contact) ? $contact :'' ?>" required></b>
 			</div>
 			<br><br><br><br>
 
@@ -103,6 +107,12 @@ if ($message->getStatus() == 0) { echo "<script> alert('The message was sent suc
 
 
 		
-        <td><input class='btn btn-success btn-user btn-lg' type='submit' name='smsg' value='Send Message'></td>
+        <td><input class='btn btn-success btn-user btn-lg' style="float: right;  " type='submit' name='smsg' value='Send Message'></td>
+		<!--td><input class='btn btn-success btn-user btn-lg' style="float: right;  " onclick="" type='button' name='smsg' value='Cancel'></td-->
 	</form>
 </div>
+<script>
+	function closeForm() {
+  document.getElementById("form1").style.display = "none";
+}
+</script>

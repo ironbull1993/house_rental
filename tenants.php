@@ -46,6 +46,7 @@
 									$paid = $paid->num_rows > 0 ? $paid->fetch_array()['paid'] : 0;
 									$last_payment = $last_payment->num_rows > 0 ? date("M d, Y",strtotime($last_payment->fetch_array()['date_created'])) : 'N/A';
 									$outstanding = $payable - $paid;
+									$remain_month=$outstanding/$row['price'];
 								?>
 								<tr>
 									<td class="text-center"><?php echo $i++ ?></td>
@@ -59,7 +60,9 @@
 										 <p> <b><?php echo number_format($row['price'],2) ?></b></p>
 									</td>
 									<td class="text-right">
-										 <p> <b><?php echo number_format($outstanding,2) ?></b></p>
+										 <p> <b><?php echo number_format(-$outstanding,2) ?>&nbsp;<b>for</b>&nbsp;<?php 
+                                         //if($row['price']==-$outstanding){
+                                         echo number_format(-$remain_month,0) ?>&nbsp;<b>month</b></b></p>
 									</td>
 									<td class="">
 										 <p><b><?php echo  $last_payment ?></b></p>

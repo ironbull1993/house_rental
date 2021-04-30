@@ -15,7 +15,8 @@ $last_payment = $conn->query("SELECT * FROM payments where tenant_id =".$_GET['i
 $paid = $paid->num_rows > 0 ? $paid->fetch_array()['paid'] : 0;
 $last_payment = $last_payment->num_rows > 0 ? date("M d, Y",strtotime($last_payment->fetch_array()['date_created'])) : 'N/A';
 $outstanding = $payable - $paid;
-
+$remain_month=-$outstanding/$price;
+$duration=($payable/$price)+$remain_month;
 ?>
 <div class="container-fluid">
 	<div class="col-lg-12">
@@ -26,10 +27,11 @@ $outstanding = $payable - $paid;
 					<hr>
 					<p>Tenant: <b><?php echo ucwords($name) ?></b></p>
 					<p>Monthly Rental Rate: <b><?php echo number_format($price,2) ?></b></p>
-					<p>Outstanding Balance: <b><?php echo number_format($outstanding,2) ?></b></p>
+					<p>Outstanding Balance: <b><?php echo number_format(-$outstanding,2) ?></b></p>
 					<p>Total Paid: <b><?php echo number_format($paid,2) ?></b></p>
 					<p>Rent Started: <b><?php echo date("M d, Y",strtotime($date_in)) ?></b></p>
-					<p>Payable Months: <b><?php echo $months ?></b></p>
+					<p>Duration of payment: <b><?php echo $duration ?>&nbsp;<b>months</b></b></p>
+					<p>Remaining Months: <b><?php echo $remain_month ?></b></p>
 				</div>
 			</div>
 			<div class="col-md-8">

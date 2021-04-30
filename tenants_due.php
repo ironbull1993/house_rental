@@ -101,6 +101,26 @@
 		max-width:100px;
 		max-height: :150px;
 	}
+
+	.btn-primary {
+		display: none;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+	
+}
+.btn-secondary {
+	position: absolute;
+  right: 25px;
+  
+  
+}
+
+
+	.modal-footer {
+		
+    border-top: 0 none;
+}
 </style>
 <script>
 	$(document).ready(function(){
@@ -112,7 +132,12 @@
 		uni_modal("Send Message To:","sms.php?id="+$(this).attr('data-id'),"mid-large")
 		
 	})
+
+
+
+
 	
+
 	
 	
 </script>
