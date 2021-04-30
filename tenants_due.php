@@ -112,7 +112,7 @@
 .btn-secondary {
 	position: absolute;
   right: 25px;
-  
+  display: none;
   
 }
 

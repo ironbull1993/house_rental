@@ -107,8 +107,9 @@ if ($message->getStatus() == 0) { echo "<script> alert('The message was sent suc
 
 
 		
-        <td><input class='btn btn-success btn-user btn-lg' style="float: right;  " type='submit' name='smsg' value='Send Message'></td>
+        <td><input class='btn btn-success btn-user btn-lg' style="float: left;  " type='submit' name='smsg' value='Send Message'></td>
 		<!--td><input class='btn btn-success btn-user btn-lg' style="float: right;  " onclick="" type='button' name='smsg' value='Cancel'></td-->
+		<button type="button" class="btn btn-secondary1" data-dismiss="modal">Cancel</button>
 	</form>
 </div>
 <script>
@@ -116,3 +117,13 @@ if ($message->getStatus() == 0) { echo "<script> alert('The message was sent suc
   document.getElementById("form1").style.display = "none";
 }
 </script>
+<style>
+.btn-secondary1 {
+	position: absolute;
+  right: 25px;
+  color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  
+}
+</style>
