@@ -197,6 +197,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 			<input type="text" name="username" id="username" class="form-control" value="<?php echo isset($meta['username']) ? $meta['username']: '' ?>" required  autocomplete="off">
 		</div>
 		<div class="form-group">
+			<label for="username">Phone</label>
+			<input type="text" name="phone" id="username" placeholder="e.g 255*********" class="form-control" value="<?php echo isset($meta['phone']) ? $meta['phone']: '' ?>" required  autocomplete="off">
+		</div>
+		<div class="form-group">
 			<label for="password">Password</label>
 			<input type="password" name="password" id="password" class="form-control" value="" autocomplete="off">
 			<?php if(isset($meta['id'])): ?>
