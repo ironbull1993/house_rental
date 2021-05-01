@@ -17,6 +17,7 @@ $last_payment = $last_payment->num_rows > 0 ? date("M d, Y",strtotime($last_paym
 $outstanding = $payable - $paid;
 $remain_month=-$outstanding/$price;
 $duration=($payable/$price)+$remain_month;
+
 ?>
 <div class="container-fluid">
 	<div class="col-lg-12">
@@ -32,6 +33,7 @@ $duration=($payable/$price)+$remain_month;
 					<p>Rent Started: <b><?php echo date("M d, Y",strtotime($date_in)) ?></b></p>
 					<p>Duration of payment: <b><?php echo $duration ?>&nbsp;<b>months</b></b></p>
 					<p>Remaining Months: <b><?php echo $remain_month ?></b></p>
+					<p>Tenant's Phone: <b><?php echo $contact ?></b></p>
 				</div>
 			</div>
 			<div class="col-md-8">
@@ -73,5 +75,8 @@ $duration=($payable/$price)+$remain_month;
 	}
 	td, th{
 		padding: 3px !important;
+	}
+	.btn-primary{
+		display: none;
 	}
 </style>
