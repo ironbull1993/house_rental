@@ -38,11 +38,14 @@ $basic  = new \Nexmo\Client\Credentials\Basic("b509304f", "yMXJtKnsJv9RhWvf");
 
 $client = new \Nexmo\Client($basic);
 $message = $client->message()->send([
+	$query1=$conn->query("SELECT * FROM system_settings"),
+$phoner=mysqli_fetch_array($query1),
+$phone_sender=$phoner['contact'],
    // 'to' => "255743997716",
    // 'from' => '255743997716',
   //  'text' => "testing"
   'to' => "$pno",
-  'from' => '255743997716',
+  'from' => "$phone_sender",
   'text' => "$msg"
 ]);
 
@@ -124,6 +127,7 @@ if ($message->getStatus() == 0) { echo "<script> alert('The message was sent suc
   color: #fff;
     background-color: #007bff;
     border-color: #007bff;
-  
+  height: 50px;
+  width:180px;
 }
 </style>

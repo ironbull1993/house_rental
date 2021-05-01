@@ -8,6 +8,10 @@ $query1 =mysqli_query($conn,"SELECT * FROM houses inner join tenants on  houses.
 $invoice=mysqli_fetch_array($query);
 $invoice1=mysqli_fetch_array($query1);
 $duration=$invoice['amount']/$invoice1['price'];
+$query2=$conn->query("SELECT * FROM system_settings");
+$phoner=mysqli_fetch_array($query2);
+$phone_sender=$phoner['contact'];
+$emailer=$phoner['email'];
 
 $pdf = new FPDF('P','mm','A4');
 $pdf ->AddPage();
@@ -24,7 +28,7 @@ $pdf->Cell('',10,'Your name: '.$invoice['firstname'].' '.$invoice['lastname'].' 
 $pdf->Cell('',10,'Starting from  '.$invoice['date_created'].' after the term ends you are required to ','','1','L');
 $pdf->Cell('',10,'pay again.','','1','L');
 $pdf->Cell('',10,'Take care of the funitures in the house.','','1','L');
-$pdf->Cell('',10,'If you have any trouble please contact 0743997716.','','1','L');
+$pdf->Cell('',10,'Contact '.$phone_sender.' or email me via '.$emailer.' for more info.','','1','L');
 $pdf->Cell('',10,'Parking is at your own risk.','','1','L');
 
 //$pdf->Cell(40	,10,$invoice['amount'],0,1);

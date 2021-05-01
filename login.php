@@ -55,7 +55,7 @@ header("location:index.php?page=home");
 		background:#59b6ec61;
 		display: flex;
 		align-items: center;
-		background: url(assets/uploads/i3.jpg);
+		background: url(assets/uploads/j.jpg);
 	    background-repeat: no-repeat;
 	    background-size: cover;
 	}
