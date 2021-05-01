@@ -27,12 +27,14 @@
 								$query2=$conn->query("SELECT * FROM houses left join tenants on houses.id = tenants.house_id where tenants.house_id is null");
                                  
 								while($row=$query2->fetch_assoc()):
+									$qry=$conn->query("SELECT name from categories where id=" .$row['category_id'] );
+									$rw=$qry->fetch_assoc();
 								?>
 								<tr>
 									<td class="text-center"><?php echo $i++ ?></td>
 									<td class="">
 										<p>House #: <b><?php echo $row['house_no'] ?></b></p>
-										<!--p><small>House Type: <b><?php echo $row['cname'] ?></b></small></p-->
+										<p><small>House Type: <b><?php echo $rw['name'] ?></b></small></p>
 										<p><small>Description: <b><?php echo $row['description'] ?></b></small></p>
 										<p><small>Price: <b><?php echo number_format($row['price'],2) ?></b></small></p>
 									</td>

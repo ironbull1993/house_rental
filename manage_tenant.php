@@ -31,7 +31,7 @@ foreach($qry->fetch_array() as $k => $val){
 			</div>
 			<div class="col-md-4">
 				<label for="" class="control-label">Contact #</label>
-				<input type="text" class="form-control" name="contact"  value="<?php echo isset($contact) ? $contact :'' ?>" required>
+				<input type="text" class="form-control" name="contact" placeholder="e.g 255*********"  value="<?php echo isset($contact) ? $contact :'' ?>" required>
 			</div>
 			
 		</div>

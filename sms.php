@@ -100,7 +100,7 @@ if ($message->getStatus() == 0) { echo "<script> alert('The message was sent suc
                          Message:
                        
                        <td><textarea class='form-control' name="msg"><?php //echo $msg; ?></textarea></td>
-                     </tr>
+            </tr>
 
 
 

@@ -55,7 +55,7 @@ header("location:index.php?page=home");
 		background:#59b6ec61;
 		display: flex;
 		align-items: center;
-		background: url(assets/uploads/j.jpg);
+		background: url(assets/uploads/<?php echo $_SESSION['system']['cover_img'] ?>);
 	    background-repeat: no-repeat;
 	    background-size: cover;
 	}
@@ -89,6 +89,13 @@ div#login-right::before {
 
   <main id="main" class=" bg-light">
   		<div id="login-left" class="bg-dark">
+		  		  
+<p><b>
+<?php $qry=$conn->query("SELECT * from system_settings"); 
+$rw=$qry->fetch_assoc();
+echo $rw['about_content']
+?>
+</b></p>
   		</div>
 
   		<div id="login-right" class="bg-light">
