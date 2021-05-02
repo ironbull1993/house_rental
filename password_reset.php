@@ -65,25 +65,28 @@ $phone_sender=$phoner['contact'],
 
 $response = $message->getResponseData();
 
-if ($message->getStatus() == 0) { //echo "<script> alert('The message was sent successfully');</script>";
+if ($message->getStatus() == 0) { //echo "
     header("location:login.php");
 
     $query12=$conn->query(  "UPDATE users SET password ='".md5($password)."' WHERE  phone=".$_POST['phone']);
-
+    echo "<script> alert('The request was sent successfully');</script>";
 
    // echo "The message was sent successfully\n";
 } else { //echo "<script> alert('The message failed!!!');</script>";
-    //header("location:index.php?page=tenants_due");
-    echo "The message failed with status: " . $message->getStatus() . "\n";
+    //header("location:login.php");
+   // echo "<script> alert('Password request failed. Contact the administrator');</script>";
+    //echo "The message failed with status: " . $message->getStatus() . "\n";
 }
 
 }
   
-  header("location:login.php");
+  //header("location:login.php");
   } 
   else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    //header("location:login.php");
+    echo "<script> alert('This number is not registered in the system contact administrator');</script>";//header("location:login.php");
+    //echo "Error: " . $qry . "<br>" . $conn->error;
   }
-  
+  header("location:login.php");
   $conn->close();
   ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 27, 2021 at 01:27 PM
+-- Generation Time: May 02, 2021 at 07:32 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(30) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `houses` (
   `description` text NOT NULL,
   `price` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `houses`
@@ -68,7 +68,8 @@ INSERT INTO `houses` (`id`, `house_no`, `category_id`, `description`, `price`) V
 (1, '623', 4, 'Sample', 2500),
 (2, '621', 2, '2 rooms electricity single meter', 150000),
 (3, '622', 3, 'sinle meter usage', 120000),
-(4, '630', 1, 'one usage', 100000);
+(4, '630', 1, 'one usage', 100000),
+(5, '311', 4, 'good', 100000);
 
 -- --------------------------------------------------------
 
@@ -95,8 +96,6 @@ CREATE TABLE IF NOT EXISTS `maintains` (
 --
 
 INSERT INTO `maintains` (`id`, `house_no`, `electricity`, `e_price`, `furniture`, `f_price`, `drainage`, `d_price`, `date_created`) VALUES
-(1, '623', 'dd', 2, 'dd', 2, 'dd', 2, '2021-04-26 17:23:46'),
-(2, '623', 'dd', 3, 'dd', 3, 'dd', 3, '2021-04-26 17:33:00'),
 (3, '630', 'new', 4, 'new', 4, 'new', 4, '2021-04-26 18:04:47');
 
 -- --------------------------------------------------------
@@ -113,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `payments` (
   `invoice` varchar(50) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `payments`
@@ -122,7 +121,27 @@ CREATE TABLE IF NOT EXISTS `payments` (
 INSERT INTO `payments` (`id`, `tenant_id`, `amount`, `invoice`, `date_created`) VALUES
 (3, 4, 360000, '12298', '2021-03-24 08:23:14'),
 (6, 7, -10000, '9911', '2021-04-24 16:16:09'),
-(7, 8, 1111, '22145', '2021-04-26 17:50:39');
+(7, 8, 1111, '22145', '2021-04-26 17:50:39'),
+(8, 9, 300000, '3333333', '2021-04-28 10:58:10'),
+(9, 10, 300000, '22222', '2021-04-28 11:44:28'),
+(10, 11, 300000, '8787', '2021-04-28 11:50:32'),
+(11, 12, 600000, '9989', '2021-04-28 11:58:37'),
+(12, 13, 100000, '4332', '2021-04-28 13:42:14'),
+(13, 14, 100000, '556445', '2021-04-28 14:40:45'),
+(14, 15, 2500, '434', '2021-04-30 16:48:45'),
+(15, 16, 2500, '4555', '2021-04-30 16:51:52'),
+(16, 17, 100000, '554432', '2021-04-30 16:53:57'),
+(17, 18, 150000, '6877', '2021-04-30 16:56:13'),
+(18, 19, 2500, '321', '2021-04-30 16:58:05'),
+(19, 20, 100000, '2221', '2021-04-30 16:59:39'),
+(20, 21, 2500, '665', '2021-04-30 17:11:43'),
+(21, 22, 150000, '975', '2021-04-30 17:12:36'),
+(22, 23, 2500, '432', '2021-04-30 17:27:46'),
+(23, 24, 150000, '221334', '2021-04-30 17:28:32'),
+(24, 25, 100000, '5', '2021-04-30 17:29:12'),
+(25, 26, 2500, '87', '2021-04-30 17:41:30'),
+(26, 27, 150000, '11', '2021-04-30 17:43:46'),
+(27, 28, 2500, '2500', '2021-04-30 17:46:14');
 
 -- --------------------------------------------------------
 
@@ -146,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `system_settings` (
 --
 
 INSERT INTO `system_settings` (`id`, `name`, `email`, `contact`, `cover_img`, `about_content`) VALUES
-(1, 'APARTMENT MANAGEMENT SYSTEM', 'code3teck@gmail.com', '+255713616639', '1619278500_download.jpg', '&lt;p style=&quot;text-align: center; background: transparent; position: relative;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Open Sans&amp;quot;, Arial, sans-serif; font-weight: 400; text-align: justify; color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color:rgb(204,0,0);font-family: &amp;quot;Open Sans&amp;quot;, Arial, sans-serif; font-weight: 400; text-align: justify;&quot;&gt;&amp;nbsp;&lt;/span&gt;&amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center; background: transparent; position: relative; color: rgb(51, 51, 51);&quot;&gt;&lt;span style=&quot;color:rgb(204,0,0);text-align: center; background: transparent; position: relative;&quot;&gt;Your apartments on your hands anywhere anytime&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center; background: transparent; position: relative;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;');
+(1, 'APARTMENT MANAGEMENT SYSTEM', 'code3teck@gmail.com', '255743997716', '1619278500_download.jpg', 'Managing your apartments and rents anytime anywhere.');
 
 -- --------------------------------------------------------
 
@@ -166,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `tenants` (
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1 = active, 0= inactive',
   `date_in` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tenants`
@@ -174,9 +193,8 @@ CREATE TABLE IF NOT EXISTS `tenants` (
 
 INSERT INTO `tenants` (`id`, `firstname`, `middlename`, `lastname`, `email`, `contact`, `house_id`, `status`, `date_in`) VALUES
 (4, 'juma', 'lungo', 'mtei', 'makurumakuru97@gmail.com', '0766125533', 3, 1, '2020-11-24'),
-(6, 'aj', 'dj', 'jj', 'Tash4business@gmail.com', '13243344', 2, 0, '2021-03-30'),
-(7, 'daniel', 'obed', 'mmbuji', 'code3teck@gmail.com', '0766125533', 1, 1, '2021-04-24'),
-(8, 'juma', 'ema', 'mushi', 'mmbuji88@gmail.com', '0766125533', 4, 1, '2021-05-26');
+(14, 'Daniel', 'john', 'mmbuji', 'code3teck@gmail.com', '255743997716', 5, 1, '2021-03-26'),
+(28, 'abed', 'juma', 'ali', 'code3teck@gmail.com', '255743997716', 1, 1, '2021-04-30');
 
 -- --------------------------------------------------------
 
@@ -189,20 +207,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(30) NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   `username` varchar(200) NOT NULL,
+  `phone` varchar(30) NOT NULL,
   `password` text NOT NULL,
   `type` tinyint(1) NOT NULL DEFAULT '2' COMMENT '1=Admin,2=Staff',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `type`) VALUES
-(11, 'daniel', 'admin', '0192023a7bbd73250516f069df18b500', 1),
-(20, 'John', 'admin11', '827ccb0eea8a706c4c34a16891f84e7b', 2),
-(21, 'kelvin', 'admin33', 'c8cd08c1984282bea030ae551b812cff', 1),
-(22, 'papa', 'code3', 'a384b6463fc216a5f8ecb6670f86456a', 2);
+INSERT INTO `users` (`id`, `name`, `username`, `phone`, `password`, `type`) VALUES
+(11, 'daniel', 'admin', '', '0192023a7bbd73250516f069df18b500', 1),
+(20, 'John', 'admin11', '', '827ccb0eea8a706c4c34a16891f84e7b', 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
