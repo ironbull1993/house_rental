@@ -28,6 +28,7 @@
 									<th class="">Monthly Rate</th>
 									<th class="">Remaining Balance</th>
 									<th class="">Last Payment</th>
+									<th class="">Notification Status</th>
 									<th class="text-center">Action</th>
 								</tr>
 							</thead>
@@ -39,8 +40,11 @@
 									$months = abs(strtotime(date('Y-m-d')." 23:59:59") - strtotime($row['date_in']." 23:59:59"));
 									$months = floor(($months) / (30*60*60*24));
 									$payable = $row['price'] * $months;
-									$paid = $conn->query("SELECT SUM(amount) as paid FROM payments where tenant_id =".$row['id']);
+									$paid = $conn->query("SELECT SUM(amount) as paid,sms_status FROM payments where tenant_id =".$row['id']);
+									
+									
 									$last_payment = $conn->query("SELECT * FROM payments where tenant_id =".$row['id']." order by unix_timestamp(date_created) desc limit 1");
+									$rww=$last_payment->fetch_assoc();
 									$paid = $paid->num_rows > 0 ? $paid->fetch_array()['paid'] : 0;
 									$last_payment = $last_payment->num_rows > 0 ? date("M d, Y",strtotime($last_payment->fetch_array()['date_created'])) : 'N/A';
 									$outstanding = $payable - $paid;
@@ -70,6 +74,9 @@
 									</td>
 									<td class="">
 										 <p><b><?php echo  $last_payment ?></b></p>
+									</td>
+									<td class="">
+										 <p><b><?php echo  $rww['sms_status'] ?></b></p>
 									</td>
 									<td class="text-center">
 										<!--button class="btn btn-sm btn-outline-primary view_payment" type="button" data-id="<?php echo $row['id'] ?>" >View</button-->

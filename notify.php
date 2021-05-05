@@ -17,31 +17,13 @@ include "db_connect.php";
 									$remain_month=$outstanding/$row['price'];
 
 
-
-                                   
-								?>
-                                
-                                <?php 
                                 $stir="Not Sent";
                                 if($rww['sms_status']==$stir){
                                 
-                                if($row['price']==-$outstanding){ ?>
+                                if($row['price']==-$outstanding){ 
 								
-                                <?php
-
-
-
-
-
-//$tnt = $conn->query("SELECT * FROM tenants where tenant_id =".$row['id']);
-//$rww1=$tnt->fetch_assoc();
-
-
-
 
 include 'db_connect.php'; 
-
-
 
 include_once "vendor/nexmo/Client.php";
 include_once "vendor/nexmo/Entity/HasEntityTrait.php";
@@ -64,23 +46,17 @@ include_once "vendor/nexmo/client/Credentials/AbstractCredentials.php";
 include_once "vendor/nexmo/client/Credentials/Basic.php";
 require_once "vendor/autoload.php";
 
-//if(isset($_POST['smsg'])){
+
     $pno = $row['contact'];
 $basic  = new \Nexmo\Client\Credentials\Basic("c48eaf65", "CDDmQNOS6BOsdUVt");
 
 $client = new \Nexmo\Client($basic);
 
-//$basic  = new \Vonage\Client\Credentials\Basic("c48eaf65", "CDDmQNOS6BOsdUVt");
-//$client = new \Vonage\Client($basic);
-
-
 $message = $client->message()->send([
 	$query1=$conn->query("SELECT * FROM system_settings"),
 $phoner=mysqli_fetch_array($query1),
 $phone_sender=$phoner['contact'],
-   // 'to' => "255743997716",
-   // 'from' => '255743997716',
-  //  'text' => "testing"
+ 
   'to' => "$pno",
   'from' => "$phone_sender",
   'text' => "x"
@@ -98,14 +74,6 @@ if ($message->getStatus() == 0) {
     
 }
 
-//}
-  
-  
-   
-  
-  
-  ?>
-                                
-                                
-                                   <?php }} ?>
-								<?php endwhile; ?>
+}} 
+ endwhile; 
+?>

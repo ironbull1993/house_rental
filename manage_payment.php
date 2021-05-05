@@ -36,6 +36,10 @@ foreach($qry->fetch_array() as $k => $val){
             <label for="" class="control-label">Amount Paid: </label>
             <input type="number" class="form-control text-right" step="any" name="amount"  value="<?php echo isset($amount) ? $amount :'' ?>" >
         </div>
+        <div class="form-group">
+            
+            <input type="hidden" class="form-control text-right" step="any" name="sms_status"  value="<?php echo 'Not Sent' ?>" >
+        </div>
 </div>
     </form>
 </div>

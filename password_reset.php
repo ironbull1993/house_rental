@@ -48,7 +48,7 @@ require_once "vendor/autoload.php";
 
 if(isset($_POST['smsg'])){
     $pno = $_POST['phone'];
-$basic  = new \Nexmo\Client\Credentials\Basic("b509304f", "yMXJtKnsJv9RhWvf");
+    $basic  = new \Nexmo\Client\Credentials\Basic("c48eaf65", "CDDmQNOS6BOsdUVt");
 
 $client = new \Nexmo\Client($basic);
 $message = $client->message()->send([
